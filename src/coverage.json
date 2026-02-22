@@ -1,0 +1,109 @@
+{
+  "kind": "coverage_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-22T18:26:43.635Z",
+  "sources": {
+    "buildRequest": true,
+    "implementationPlan": true
+  },
+  "requirements": {
+    "total": 7,
+    "implemented": 6,
+    "items": [
+      {
+        "id": "REQ-24",
+        "summary": "Create a new LocationTrackingPage component at frontend/src/pages/LocationTrackingPage.tsx that displays a Google Maps interface showing real-time locations of active donors and receivers. The page should be accessible to all authenticated users and include a map with markers for user locations.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/LocationTrackingPage.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/LocationTrackingPage.tsx"
+        ]
+      },
+      {
+        "id": "REQ-25",
+        "summary": "Add a new route '/location-tracking' to the router configuration in frontend/src/App.tsx that renders the LocationTrackingPage component.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/App.tsx"
+        ]
+      },
+      {
+        "id": "REQ-26",
+        "summary": "Update the Navigation component at frontend/src/components/Navigation.tsx to include a 'Location Tracking' navigation link that routes to '/location-tracking', positioned logically with other main navigation items.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/Navigation.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/Navigation.tsx"
+        ]
+      },
+      {
+        "id": "REQ-27",
+        "summary": "Display map markers on the location tracking page for all available donors showing their current location from their profile data. Each marker should be visually distinct for donors and include a popup or info window showing the donor's blood group when clicked.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/LocationTrackingPage.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/LocationTrackingPage.tsx"
+        ]
+      },
+      {
+        "id": "REQ-28",
+        "summary": "Display map markers on the location tracking page for active blood requests showing their location. Each marker should be visually distinct from donor markers and include a popup showing request details (blood group needed, urgency level, status) when clicked.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/LocationTrackingPage.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/LocationTrackingPage.tsx"
+        ]
+      },
+      {
+        "id": "REQ-29",
+        "summary": "Implement backend API endpoint getActiveLocations that returns an array of location data for available donors and active blood requests. The endpoint should return structured data including location coordinates, type (donor/request), blood group, and relevant identifiers.",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-30",
+        "summary": "Create a React Query hook useGetActiveLocations at frontend/src/hooks/useGetActiveLocations.ts that fetches location data from the backend getActiveLocations endpoint and provides it to the LocationTrackingPage component with appropriate loading and error states.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/hooks/useGetActiveLocations.ts",
+          "frontend/src/pages/LocationTrackingPage.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/hooks/useGetActiveLocations.ts",
+          "frontend/src/pages/LocationTrackingPage.tsx"
+        ]
+      }
+    ]
+  },
+  "changedFiles": [
+    "backend/main.mo",
+    "build-request.json",
+    "feature_evidence.json",
+    "frontend-file-summaries.txt",
+    "frontend-implementation-plan.json",
+    "frontend/src/App.tsx",
+    "frontend/src/backend.d.ts",
+    "frontend/src/backend.ts",
+    "frontend/src/components/Navigation.tsx",
+    "frontend/src/declarations/backend.did.d.ts",
+    "frontend/src/declarations/backend.did.js",
+    "frontend/src/hooks/useGetActiveLocations.ts",
+    "frontend/src/pages/LocationTrackingPage.tsx",
+    "project_state.json",
+    "scratch/component-selection.json",
+    "spec.md",
+    "spec_vs_diff_report.json"
+  ]
+}

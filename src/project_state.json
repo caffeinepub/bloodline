@@ -1,0 +1,369 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 7,
+  "summary": "BloodLine: A real-time blood donation platform connecting donors and recipients during emergencies with location-based matching using Google Maps API, secure authentication, role-based dashboards, and structured pages for blood requests and donations",
+  "architectural_notes": [
+    "Full-stack web application with React frontend",
+    "Backend with RESTful APIs for authentication, user management, and blood request handling",
+    "Database storing user profiles, blood requests, chat messages, call logs, and activity records",
+    "Role-based access control for Donor, Receiver, and Admin roles",
+    "Mobile-first responsive design for cross-device compatibility",
+    "Real-time communication infrastructure for chat and calling",
+    "Secure data handling for sensitive health and personal information",
+    "Scalable architecture for production readiness",
+    "Notification system for real-time alerts",
+    "Google Maps API integration for location-based features and address selection"
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "existing_features": [
+    {
+      "id": "feature-implement-user-authentication-and-authorization-system-supporting-three-roles-donor-receiver-and-admin-users-must-be-able-to-register-with-their-role-selection-log-in-using-internet-identity-log-out-and-access-features-based-on-their-assigned-role",
+      "title": "Implement user authentication and authorization system supporting three roles: Donor, Receiver, and Admin. Users must be able to register with their role selection, log in using Internet Identity, log out, and access features based on their assigned role.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-and-manage-user-profile-data-including-name-blood-group-a-a-b-b-ab-ab-o-o-role-donor-receiver-admin-location-latitude-longitude-or-city-and-availability-status-for-donors-provide-backend-storage-and-apis-for-profile-creation-retrieval-and-updates",
+      "title": "Create and manage user profile data including name, blood group (A+, A-, B+, B-, AB+, AB-, O+, O-), role (Donor/Receiver/Admin), location (latitude/longitude or city), and availability status (for donors). Provide backend storage and APIs for profile creation, retrieval, and updates.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-a-landing-page-with-project-introduction-explaining-bloodline-s-purpose-as-a-real-time-blood-donation-platform-connecting-donors-and-recipients-during-emergencies-include-clear-call-to-action-buttons-for-signup-login-and-highlight-key-features-like-location-based-matching-and-fast-donor-discovery",
+      "title": "Build a landing page with project introduction explaining BloodLine's purpose as a real-time blood donation platform connecting donors and recipients during emergencies. Include clear call-to-action buttons for signup/login and highlight key features like location-based matching and fast donor discovery.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-signup-and-login-pages-with-forms-for-user-registration-and-authentication-signup-form-must-collect-name-blood-group-role-selection-and-location-integrate-with-internet-identity-for-secure-authentication",
+      "title": "Create signup and login pages with forms for user registration and authentication. Signup form must collect name, blood group, role selection, and location. Integrate with Internet Identity for secure authentication.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-a-donor-dashboard-featuring-an-availability-toggle-available-unavailable-for-donation-display-of-active-blood-requests-matching-the-donor-s-blood-group-notification-center-for-incoming-requests-and-quick-access-to-profile-settings",
+      "title": "Build a Donor dashboard featuring an availability toggle (available/unavailable for donation), display of active blood requests matching the donor's blood group, notification center for incoming requests, and quick access to profile settings.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-a-receiver-dashboard-with-functionality-to-create-new-blood-requests-specifying-blood-group-needed-urgency-level-location-view-created-requests-with-their-status-see-matched-donors-and-access-communication-tools-for-contacting-donors",
+      "title": "Build a Receiver dashboard with functionality to create new blood requests (specifying blood group needed, urgency level, location), view created requests with their status, see matched donors, and access communication tools for contacting donors.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-an-admin-dashboard-displaying-all-registered-users-with-role-blood-group-location-all-blood-requests-with-status-and-urgency-platform-activity-statistics-total-users-active-donors-completed-requests-and-user-request-management-capabilities",
+      "title": "Build an Admin dashboard displaying all registered users (with role, blood group, location), all blood requests (with status and urgency), platform activity statistics (total users, active donors, completed requests), and user/request management capabilities.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-profile-page-where-users-can-view-and-edit-their-personal-information-including-name-blood-group-location-and-contact-preferences-include-save-functionality-that-updates-the-backend-and-displays-success-error-feedback",
+      "title": "Create a profile page where users can view and edit their personal information including name, blood group, location, and contact preferences. Include save functionality that updates the backend and displays success/error feedback.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-real-time-chat-functionality-enabling-direct-messaging-between-matched-donors-and-receivers-include-message-history-storage-unread-message-indicators-and-timestamp-display-ui-should-show-conversation-thread-with-sent-received-message-styling",
+      "title": "Build real-time chat functionality enabling direct messaging between matched donors and receivers. Include message history storage, unread message indicators, and timestamp display. UI should show conversation thread with sent/received message styling.",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-request-tracking-and-status-updates-feature-showing-blood-request-lifecycle-created-matched-in-progress-completed-cancelled-display-status-timeline-in-ui-with-status-change-timestamps-allow-receivers-to-update-request-status-and-donors-to-confirm-donation-completion",
+      "title": "Implement request tracking and status updates feature showing blood request lifecycle (created, matched, in progress, completed, cancelled). Display status timeline in UI with status change timestamps. Allow receivers to update request status and donors to confirm donation completion.",
+      "reqIds": [
+        "REQ-15"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-a-cohesive-visual-design-theme-throughout-the-application-with-a-professional-trustworthy-aesthetic-appropriate-for-a-healthcare-emergency-platform-use-a-warm-compassionate-color-palette-avoiding-blue-purple-unless-contextually-necessary-with-clear-typography-accessible-contrast-ratios-and-consistent-spacing-design-should-evoke-urgency-reliability-and-human-connection-while-maintaining-mobile-first-responsiveness",
+      "title": "Apply a cohesive visual design theme throughout the application with a professional, trustworthy aesthetic appropriate for a healthcare/emergency platform. Use a warm, compassionate color palette (avoiding blue/purple unless contextually necessary) with clear typography, accessible contrast ratios, and consistent spacing. Design should evoke urgency, reliability, and human connection while maintaining mobile-first responsiveness.",
+      "reqIds": [
+        "REQ-16"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-dedicated-blood-request-page-accessible-to-all-authenticated-users-donors-receivers-admins-where-they-can-create-new-blood-requests-by-specifying-blood-group-needed-urgency-level-and-location-using-google-maps-integration-display-all-blood-requests-created-by-the-current-user-with-their-status",
+      "title": "Create a dedicated Blood Request page accessible to all authenticated users (donors, receivers, admins) where they can create new blood requests by specifying blood group needed, urgency level, and location using Google Maps integration. Display all blood requests created by the current user with their status.",
+      "reqIds": [
+        "REQ-17"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-dedicated-blood-donation-page-accessible-to-all-authenticated-users-where-donors-can-view-available-blood-requests-matching-their-blood-group-toggle-their-donation-availability-status-and-see-donation-opportunities-non-donors-should-see-information-about-becoming-a-donor",
+      "title": "Create a dedicated Blood Donation page accessible to all authenticated users where donors can view available blood requests matching their blood group, toggle their donation availability status, and see donation opportunities. Non-donors should see information about becoming a donor.",
+      "reqIds": [
+        "REQ-18"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-dashboard-page-to-serve-as-a-unified-profile-management-area-where-users-can-view-and-edit-both-their-donor-profile-details-name-blood-group-availability-contact-preferences-and-their-blood-request-details-requests-they-created-as-receivers-consolidate-profile-editing-functionality-into-this-single-dashboard",
+      "title": "Update the Dashboard page to serve as a unified profile management area where users can view and edit both their donor profile details (name, blood group, availability, contact preferences) and their blood request details (requests they created as receivers). Consolidate profile editing functionality into this single dashboard.",
+      "reqIds": [
+        "REQ-19"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-navigation-component-to-display-four-main-sections-accessible-to-all-authenticated-users-home-landing-page-blood-request-create-and-view-requests-blood-donation-donation-opportunities-and-availability-and-dashboard-profile-and-request-management-remove-role-specific-navigation-restrictions",
+      "title": "Update the Navigation component to display four main sections accessible to all authenticated users: Home (landing page), Blood Request (create and view requests), Blood Donation (donation opportunities and availability), and Dashboard (profile and request management). Remove role-specific navigation restrictions.",
+      "reqIds": [
+        "REQ-20"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-integrate-google-maps-api-with-key-aizasydvpz5qiqr-kdj-mmbbjz7u44suptyleuo-for-location-selection-and-display-throughout-the-application-replace-all-latitude-longitude-coordinate-inputs-with-a-google-maps-place-picker-that-allows-users-to-search-for-and-select-locations-by-address-or-place-name-store-location-as-address-string-with-coordinates-extracted-from-google-maps",
+      "title": "Integrate Google Maps API with key AIzaSyDvpZ5QIQr_KDj_mMBbjz7U44sUpTYLEUo for location selection and display throughout the application. Replace all latitude/longitude coordinate inputs with a Google Maps place picker that allows users to search for and select locations by address or place name. Store location as address string with coordinates extracted from Google Maps.",
+      "reqIds": [
+        "REQ-21"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-new-locationtrackingpage-component-at-frontend-src-pages-locationtrackingpage-tsx-that-displays-a-google-maps-interface-showing-real-time-locations-of-active-donors-and-receivers-the-page-should-be-accessible-to-all-authenticated-users-and-include-a-map-with-markers-for-user-locations",
+      "title": "Create a new LocationTrackingPage component at frontend/src/pages/LocationTrackingPage.tsx that displays a Google Maps interface showing real-time locations of active donors and receivers. The page should be accessible to all authenticated users and include a map with markers for user locations.",
+      "reqIds": [
+        "REQ-24"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-new-route-location-tracking-to-the-router-configuration-in-frontend-src-app-tsx-that-renders-the-locationtrackingpage-component",
+      "title": "Add a new route '/location-tracking' to the router configuration in frontend/src/App.tsx that renders the LocationTrackingPage component.",
+      "reqIds": [
+        "REQ-25"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-navigation-component-at-frontend-src-components-navigation-tsx-to-include-a-location-tracking-navigation-link-that-routes-to-location-tracking-positioned-logically-with-other-main-navigation-items",
+      "title": "Update the Navigation component at frontend/src/components/Navigation.tsx to include a 'Location Tracking' navigation link that routes to '/location-tracking', positioned logically with other main navigation items.",
+      "reqIds": [
+        "REQ-26"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-display-map-markers-on-the-location-tracking-page-for-all-available-donors-showing-their-current-location-from-their-profile-data-each-marker-should-be-visually-distinct-for-donors-and-include-a-popup-or-info-window-showing-the-donor-s-blood-group-when-clicked",
+      "title": "Display map markers on the location tracking page for all available donors showing their current location from their profile data. Each marker should be visually distinct for donors and include a popup or info window showing the donor's blood group when clicked.",
+      "reqIds": [
+        "REQ-27"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-display-map-markers-on-the-location-tracking-page-for-active-blood-requests-showing-their-location-each-marker-should-be-visually-distinct-from-donor-markers-and-include-a-popup-showing-request-details-blood-group-needed-urgency-level-status-when-clicked",
+      "title": "Display map markers on the location tracking page for active blood requests showing their location. Each marker should be visually distinct from donor markers and include a popup showing request details (blood group needed, urgency level, status) when clicked.",
+      "reqIds": [
+        "REQ-28"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-react-query-hook-usegetactivelocations-at-frontend-src-hooks-usegetactivelocations-ts-that-fetches-location-data-from-the-backend-getactivelocations-endpoint-and-provides-it-to-the-locationtrackingpage-component-with-appropriate-loading-and-error-states",
+      "title": "Create a React Query hook useGetActiveLocations at frontend/src/hooks/useGetActiveLocations.ts that fetches location data from the backend getActiveLocations endpoint and provides it to the LocationTrackingPage component with appropriate loading and error states.",
+      "reqIds": [
+        "REQ-30"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Secure user authentication and authorization with role-based access (Donor, Receiver, Admin)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Modern, mobile-first, responsive UI with landing page, signup/login, and role-based dashboards",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Donor dashboard with availability toggle",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Receiver dashboard to create and track blood requests",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Admin dashboard for monitoring users, blood requests, and platform activity",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Profile page with edit profile functionality",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Location-based donor matching by blood group and location",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Real-time chat between donor and receiver",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-9",
+      "summary": "In-app audio calling functionality",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-10",
+      "summary": "Notifications for blood requests, messages, and calls",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-19",
+      "summary": "Implement backend logic and APIs for managing blood requests including creation, status updates (pending, matched, completed, cancelled), urgency levels (critical, high, normal), location storage, and timestamp tracking. Store blood requests with associated receiver and matched donor information.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-20",
+      "summary": "Implement location-based donor matching algorithm that finds available donors matching the required blood group within a reasonable distance from the request location. Consider blood type compatibility rules (universal donors, compatible types) and donor availability status.",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-22",
+      "summary": "Implement notification system displaying alerts for blood requests matching donor criteria, incoming messages, call events, and request status updates. Show notification count badge and notification list with timestamp and action links.",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-23",
+      "summary": "Store and manage call logs recording audio call events between donors and receivers including caller, receiver, timestamp, duration, and call status. Provide API for retrieving call history.",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-24",
+      "summary": "Store system activity records tracking important platform events including user registrations, blood request creation, donor matches, completed donations, and admin actions. Provide analytics data for admin dashboard.",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-25",
+      "summary": "Restructure navigation with consistent page structure: Home page, Blood Request page, Blood Donation page, and Dashboard accessible to all users",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-26",
+      "summary": "Allow donors to register blood requests (donors can also be receivers)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-27",
+      "summary": "Create dedicated Blood Request page for creating and viewing blood requests",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-28",
+      "summary": "Create dedicated Blood Donation page for managing donation availability and viewing donation opportunities",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-29",
+      "summary": "Update Dashboard to allow users to alter both donor profile details and requesting person details",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-30",
+      "summary": "Integrate Google Maps API (AIzaSyDvpZ5QIQr_KDj_mMBbjz7U44sUpTYLEUo) for location selection and display instead of latitude/longitude input",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-36",
+      "summary": "Update backend data models to store location as both address string and coordinates (latitude/longitude). Modify UserProfile and BloodRequest types to include address field alongside existing location coordinates. Update all CRUD operations to handle address storage and retrieval.",
+      "reqIds": [
+        "REQ-22"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-37",
+      "summary": "Update blood request matching logic to allow donors to create blood requests, effectively enabling users to act as both donors and receivers. Remove restrictions that prevent donors from creating blood requests.",
+      "reqIds": [
+        "REQ-23"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-38",
+      "summary": "Add location tracking page for monitoring donor/receiver locations in real-time",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-44",
+      "summary": "Implement backend API endpoint getActiveLocations that returns an array of location data for available donors and active blood requests. The endpoint should return structured data including location coordinates, type (donor/request), blood group, and relevant identifiers.",
+      "reqIds": [
+        "REQ-29"
+      ],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "BloodLine",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

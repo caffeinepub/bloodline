@@ -1,0 +1,161 @@
+{
+  "kind": "build_request",
+  "title": "Add location tracking page for real-time donor/receiver monitoring",
+  "projectName": "BloodLine",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-24",
+      "text": "Create a new LocationTrackingPage component at frontend/src/pages/LocationTrackingPage.tsx that displays a Google Maps interface showing real-time locations of active donors and receivers. The page should be accessible to all authenticated users and include a map with markers for user locations.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-user-final"
+        ],
+        "quotes": [
+          "Add location tracking page"
+        ]
+      },
+      "acceptanceCriteria": [
+        "New LocationTrackingPage component exists at frontend/src/pages/LocationTrackingPage.tsx",
+        "Page displays a full-screen or prominent Google Maps component using the existing Google Maps API key",
+        "Page is accessible to authenticated users and redirects unauthenticated users to /auth",
+        "Map shows appropriate zoom level and initial center point"
+      ]
+    },
+    {
+      "id": "REQ-25",
+      "text": "Add a new route '/location-tracking' to the router configuration in frontend/src/App.tsx that renders the LocationTrackingPage component.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-user-final"
+        ],
+        "quotes": [
+          "Add location tracking page"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Route '/location-tracking' is configured in the router",
+        "Route renders LocationTrackingPage component",
+        "Route is accessible after authentication"
+      ]
+    },
+    {
+      "id": "REQ-26",
+      "text": "Update the Navigation component at frontend/src/components/Navigation.tsx to include a 'Location Tracking' navigation link that routes to '/location-tracking', positioned logically with other main navigation items.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-user-final"
+        ],
+        "quotes": [
+          "Add location tracking page"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Navigation component includes 'Location Tracking' link",
+        "Link routes to '/location-tracking' when clicked",
+        "Link appears in both desktop and mobile navigation menus",
+        "Link highlights when active on the location tracking page"
+      ]
+    },
+    {
+      "id": "REQ-27",
+      "text": "Display map markers on the location tracking page for all available donors showing their current location from their profile data. Each marker should be visually distinct for donors and include a popup or info window showing the donor's blood group when clicked.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-user-final"
+        ],
+        "quotes": [
+          "Add location tracking page"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Donor locations are displayed as markers on the map using coordinates from UserProfile data",
+        "Only available donors are shown on the map",
+        "Markers are color-coded or styled to indicate donor status",
+        "Clicking a marker shows donor information including blood group",
+        "Markers update when donor availability changes"
+      ]
+    },
+    {
+      "id": "REQ-28",
+      "text": "Display map markers on the location tracking page for active blood requests showing their location. Each marker should be visually distinct from donor markers and include a popup showing request details (blood group needed, urgency level, status) when clicked.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-user-final"
+        ],
+        "quotes": [
+          "Add location tracking page"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Active blood request locations are displayed as markers on the map",
+        "Only pending or matched requests are shown",
+        "Request markers use a different color or icon than donor markers",
+        "Clicking a request marker shows blood group needed, urgency level, and status",
+        "Markers are removed when requests are completed or cancelled"
+      ]
+    },
+    {
+      "id": "REQ-29",
+      "text": "Implement backend API endpoint getActiveLocations that returns an array of location data for available donors and active blood requests. The endpoint should return structured data including location coordinates, type (donor/request), blood group, and relevant identifiers.",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-user-final"
+        ],
+        "quotes": [
+          "Add location tracking page"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Backend exposes getActiveLocations public query endpoint",
+        "Endpoint returns array with donor locations (available donors only)",
+        "Endpoint returns array with active blood request locations (pending/matched only)",
+        "Each entry includes latitude, longitude, type, blood group, and identifier",
+        "Endpoint is accessible to authenticated users"
+      ]
+    },
+    {
+      "id": "REQ-30",
+      "text": "Create a React Query hook useGetActiveLocations at frontend/src/hooks/useGetActiveLocations.ts that fetches location data from the backend getActiveLocations endpoint and provides it to the LocationTrackingPage component with appropriate loading and error states.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-user-final"
+        ],
+        "quotes": [
+          "Add location tracking page"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Hook exists at frontend/src/hooks/useGetActiveLocations.ts",
+        "Hook uses React Query to fetch data from backend",
+        "Hook returns location data, loading state, and error state",
+        "Hook automatically refetches data periodically for real-time updates",
+        "LocationTrackingPage uses this hook to display map markers"
+      ]
+    }
+  ],
+  "constraints": [
+    "Use existing Google Maps API key AIzaSyDvpZ5QIQr_KDj_mMBbjz7U44sUpTYLEUo already integrated in the application",
+    "Respect single-actor backend architecture - implement getActiveLocations in backend/main.mo",
+    "Do not modify immutable frontend paths including useInternetIdentity hooks, useActor hook, main.tsx, or components/ui directory",
+    "Follow existing patterns for authentication guards and route configuration seen in other pages"
+  ],
+  "nonGoals": [
+    "Real-time GPS tracking or continuous location updates from user devices",
+    "Live movement tracking or route navigation",
+    "Geofencing or proximity alerts",
+    "Historical location data or location history tracking",
+    "Distance calculation or shortest route finding between donors and requests"
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}

@@ -1,0 +1,126 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-create-a-new-locationtrackingpage-component-at-frontend-src-pages-locationtrackingpage-tsx-that-displays-a-google-maps-interface-showing-real-time-locations-of-active-donors-and-receivers-the-page-should-be-accessible-to-all-authenticated-users-and-include-a-map-with-markers-for-user-locations",
+      "featureTitle": "Create a new LocationTrackingPage component at frontend/src/pages/LocationTrackingPage.tsx that displays a Google Maps interface showing real-time locations of active donors and receivers. The page should be accessible to all authenticated users and include a map with markers for user locations.",
+      "files": [
+        "frontend/src/pages/LocationTrackingPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0",
+        "http-outcalls@3.0.0"
+      ],
+      "testIds": [
+        "REQ-24"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-a-new-route-location-tracking-to-the-router-configuration-in-frontend-src-app-tsx-that-renders-the-locationtrackingpage-component",
+      "featureTitle": "Add a new route '/location-tracking' to the router configuration in frontend/src/App.tsx that renders the LocationTrackingPage component.",
+      "files": [
+        "frontend/src/App.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0",
+        "http-outcalls@3.0.0"
+      ],
+      "testIds": [
+        "REQ-25"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-update-the-navigation-component-at-frontend-src-components-navigation-tsx-to-include-a-location-tracking-navigation-link-that-routes-to-location-tracking-positioned-logically-with-other-main-navigation-items",
+      "featureTitle": "Update the Navigation component at frontend/src/components/Navigation.tsx to include a 'Location Tracking' navigation link that routes to '/location-tracking', positioned logically with other main navigation items.",
+      "files": [
+        "frontend/src/components/Navigation.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0",
+        "http-outcalls@3.0.0"
+      ],
+      "testIds": [
+        "REQ-26"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-display-map-markers-on-the-location-tracking-page-for-all-available-donors-showing-their-current-location-from-their-profile-data-each-marker-should-be-visually-distinct-for-donors-and-include-a-popup-or-info-window-showing-the-donor-s-blood-group-when-clicked",
+      "featureTitle": "Display map markers on the location tracking page for all available donors showing their current location from their profile data. Each marker should be visually distinct for donors and include a popup or info window showing the donor's blood group when clicked.",
+      "files": [
+        "frontend/src/pages/LocationTrackingPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0",
+        "http-outcalls@3.0.0"
+      ],
+      "testIds": [
+        "REQ-27"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-display-map-markers-on-the-location-tracking-page-for-active-blood-requests-showing-their-location-each-marker-should-be-visually-distinct-from-donor-markers-and-include-a-popup-showing-request-details-blood-group-needed-urgency-level-status-when-clicked",
+      "featureTitle": "Display map markers on the location tracking page for active blood requests showing their location. Each marker should be visually distinct from donor markers and include a popup showing request details (blood group needed, urgency level, status) when clicked.",
+      "files": [
+        "frontend/src/pages/LocationTrackingPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0",
+        "http-outcalls@3.0.0"
+      ],
+      "testIds": [
+        "REQ-28"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-a-react-query-hook-usegetactivelocations-at-frontend-src-hooks-usegetactivelocations-ts-that-fetches-location-data-from-the-backend-getactivelocations-endpoint-and-provides-it-to-the-locationtrackingpage-component-with-appropriate-loading-and-error-states",
+      "featureTitle": "Create a React Query hook useGetActiveLocations at frontend/src/hooks/useGetActiveLocations.ts that fetches location data from the backend getActiveLocations endpoint and provides it to the LocationTrackingPage component with appropriate loading and error states.",
+      "files": [
+        "frontend/src/hooks/useGetActiveLocations.ts",
+        "frontend/src/pages/LocationTrackingPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0",
+        "http-outcalls@3.0.0"
+      ],
+      "testIds": [
+        "REQ-30"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

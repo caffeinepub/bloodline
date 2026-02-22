@@ -1,0 +1,116 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Add location tracking page for real-time donor/receiver monitoring",
+  "requirements": [
+    {
+      "id": "REQ-24",
+      "summary": "Create LocationTrackingPage component with Google Maps interface",
+      "acceptanceCriteria": [
+        "New LocationTrackingPage component exists at frontend/src/pages/LocationTrackingPage.tsx",
+        "Page displays a full-screen or prominent Google Maps component using the existing Google Maps API key",
+        "Page is accessible to authenticated users and redirects unauthenticated users to /auth",
+        "Map shows appropriate zoom level and initial center point"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/LocationTrackingPage.tsx",
+          "operation": "create",
+          "description": "Create a new page component that renders a Google Maps interface for displaying real-time locations. The component should check authentication status using useInternetIdentity hook and redirect unauthenticated users to /auth. Initialize the Google Maps component with an appropriate zoom level (e.g., 10-12) and a sensible default center point. The map should be full-screen or prominently sized to show multiple markers effectively. Use the existing Google Maps API key already loaded in index.html."
+        }
+      ]
+    },
+    {
+      "id": "REQ-25",
+      "summary": "Add '/location-tracking' route to router configuration",
+      "acceptanceCriteria": [
+        "Route '/location-tracking' is configured in the router",
+        "Route renders LocationTrackingPage component",
+        "Route is accessible after authentication"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add a new route configuration for '/location-tracking' that renders the LocationTrackingPage component. Follow the existing pattern used for other protected routes like dashboard, blood-request, and blood-donation. Import LocationTrackingPage at the top of the file and add the route configuration alongside the existing routes in the router setup."
+        }
+      ]
+    },
+    {
+      "id": "REQ-26",
+      "summary": "Add 'Location Tracking' navigation link to Navigation component",
+      "acceptanceCriteria": [
+        "Navigation component includes 'Location Tracking' link",
+        "Link routes to '/location-tracking' when clicked",
+        "Link appears in both desktop and mobile navigation menus",
+        "Link highlights when active on the location tracking page"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Navigation.tsx",
+          "operation": "modify",
+          "description": "Add a 'Location Tracking' navigation link that routes to '/location-tracking'. Position it logically with other main navigation items (after Dashboard, before Chat/Profile). Ensure the link appears in both the desktop navigation bar and the mobile Sheet menu. Use the existing Link component from TanStack Router with appropriate className for active state highlighting, following the pattern of existing navigation links."
+        }
+      ]
+    },
+    {
+      "id": "REQ-27",
+      "summary": "Display donor location markers on the map",
+      "acceptanceCriteria": [
+        "Donor locations are displayed as markers on the map using coordinates from UserProfile data",
+        "Only available donors are shown on the map",
+        "Markers are color-coded or styled to indicate donor status",
+        "Clicking a marker shows donor information including blood group",
+        "Markers update when donor availability changes"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/LocationTrackingPage.tsx",
+          "operation": "modify",
+          "description": "Implement Google Maps marker rendering for donor locations using data from useGetActiveLocations hook. Filter the location data for entries with type 'donor'. Create markers at the provided coordinates with a distinct color or custom icon (e.g., using the generated/donor-icon.dim_128x128.png asset or a distinct marker color). Attach an InfoWindow or popup to each marker that displays the donor's blood group when clicked. Ensure markers update reactively when the location data changes (leveraging React Query's automatic refetching)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-28",
+      "summary": "Display blood request location markers on the map",
+      "acceptanceCriteria": [
+        "Active blood request locations are displayed as markers on the map",
+        "Only pending or matched requests are shown",
+        "Request markers use a different color or icon than donor markers",
+        "Clicking a request marker shows blood group needed, urgency level, and status",
+        "Markers are removed when requests are completed or cancelled"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/LocationTrackingPage.tsx",
+          "operation": "modify",
+          "description": "Implement Google Maps marker rendering for blood request locations using data from useGetActiveLocations hook. Filter the location data for entries with type 'request'. Create markers at the provided coordinates with a distinct color or custom icon different from donor markers (e.g., using the generated/receiver-icon.dim_128x128.png asset or a contrasting marker color). Attach an InfoWindow or popup to each marker that displays the blood group needed, urgency level (format using existing utility functions if available), and request status when clicked. Markers will automatically update/disappear when the backend filters out completed or cancelled requests."
+        }
+      ]
+    },
+    {
+      "id": "REQ-30",
+      "summary": "Create useGetActiveLocations React Query hook",
+      "acceptanceCriteria": [
+        "Hook exists at frontend/src/hooks/useGetActiveLocations.ts",
+        "Hook uses React Query to fetch data from backend",
+        "Hook returns location data, loading state, and error state",
+        "Hook automatically refetches data periodically for real-time updates",
+        "LocationTrackingPage uses this hook to display map markers"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/hooks/useGetActiveLocations.ts",
+          "operation": "create",
+          "description": "Create a React Query hook that fetches active location data from the backend getActiveLocations method. Use useQuery with queryKey ['activeLocations'], call actor.getActiveLocations() in the queryFn, and enable the query only when actor is available (following the pattern in useGetCallerUserProfile.ts). Configure automatic refetching for real-time updates using refetchInterval (e.g., 30000ms for 30-second intervals) or staleTime settings. Return location data as an array of ActiveLocation objects, along with isLoading, isError, and error states for the LocationTrackingPage to consume."
+        },
+        {
+          "path": "frontend/src/pages/LocationTrackingPage.tsx",
+          "operation": "modify",
+          "description": "Import and integrate the useGetActiveLocations hook into the LocationTrackingPage component. Use the hook's data to render map markers, display loading states while data is fetching, and show appropriate error messages if the query fails. Ensure the component handles the case when location data is empty (no active donors or requests)."
+        }
+      ]
+    }
+  ]
+}
